@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver.Navigation;
 import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebDriver.TargetLocator;
 
-import seleniumConcepts.WebElementsMethods;
 
 public class WebDriverMethods {
 
