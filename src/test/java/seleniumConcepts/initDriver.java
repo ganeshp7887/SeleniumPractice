@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class initDriver {
 	
 	private static String[] myoptions = {};
-	private static String Path = "C:\\Users\\ganeshp\\eclipse-workspace\\SeleniumPractice\\src\\test\\java\\Drivers\\geckodriver.exe";
+	private static String Path = ".\\src\\test\\java\\Drivers\\geckodriver.exe";
 	private static WebDriver driver = null;
 	private static String url = "https://parabank.parasoft.com/parabank/index.htm";
 	

@@ -1,5 +1,4 @@
 package seleniumConcepts;
-import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -38,9 +37,9 @@ public class WebElementsMethods {
 		System.out.println("The username is enabled :\t"+username.isEnabled());  	 						// WebElement Method
 		System.out.println("The username is selected :\t"+username.isSelected());  							// WebElement Method
 		System.out.println("The username is tag is :\t"+username.getTagName());  	 						// WebElement Method
-		System.out.println("The username of name attribute is :\t"+username.getAttribute("name"));  		// WebElement Method
-		System.out.println("The username of name dom attribute is :\t"+username.getDomAttribute("name"));	// WebElement Method
-		System.out.println("The username of name dom property is :\t"+username.getDomProperty("name"));		// WebElement Method
+		System.out.println("The value of name attribute is :\t"+username.getAttribute("name"));  		// WebElement Method
+		System.out.println("The value of name dom attribute is :\t"+username.getDomAttribute("name"));	// WebElement Method
+		System.out.println("The value of name dom property is :\t"+username.getDomProperty("name"));		// WebElement Method
 		System.out.println("The forgot password text is  :\t"+forgot.getText());    						// WebElement Method
 		
 			
