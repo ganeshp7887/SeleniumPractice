@@ -17,8 +17,6 @@ public class WebDriverMethods {
 		
 		init.setUrl();
 		
-		driver.findElement(By.xpath("//a[text()='www.parasoft.com']")).click();
-		
 		// driver.get("");										 // Webdriver methods :- To navigate to url.
 		
 		String url = driver.getCurrentUrl(); 					 // Webdriver methods :- To Get current url location.

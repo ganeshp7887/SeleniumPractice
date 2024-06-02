@@ -1,4 +1,6 @@
 package seleniumConcepts;
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -6,13 +8,13 @@ import org.openqa.selenium.WebElement;
 
 public class WebElementsMethods {
 	
-	static private String usernameXpath = "//input[@class='input' and @name='username']";	// Find Elements by Xpath
-	static private String passwordXpath = "//input[@class='input' and @name='password']";	// Find Elements by Xpath	
-	static private String submitXpath = "//input[@class='button' and @type='submit']";		// Find Elements by Xpath
-	static private String forgetXpath = "//*[contains(text(),'Forgot')]";					// Find Elements by Xpath
-	static private String labels =  "//ul[@class='leftmenu']/li";							// Find Elements by Xpath
+	static public String usernameXpath = "//input[@name='uid']";	// Find Elements by Xpath
+	static public String passwordXpath = "//input[@name='password']";	// Find Elements by Xpath	
+	static public String submitXpath = "//input[@name='btnLogin']";		// Find Elements by Xpath
+	static public String resetXpath = "//input[@name='btnReset']";					// Find Elements by Xpath
+	static public String messageXpath = "//form[@name='frmLogin']/table/tbody/tr/td[1]";
 	
-	public static WebElement elementFound(WebDriver driver , String element) throws NoSuchElementException{
+	public static WebElement elementFound(WebDriver driver , String element) throws NoSuchElementException, NullPointerException{
 		WebElement ele = driver.findElement(By.xpath(element));
 		return ele;
 	}
@@ -29,18 +31,20 @@ public class WebElementsMethods {
 		WebElement username = elementFound(driver, usernameXpath);
 		WebElement password = elementFound(driver, passwordXpath);
 		WebElement submit =   elementFound(driver, submitXpath);
-		WebElement forgot =	  elementFound(driver, forgetXpath);
+		WebElement forgot =	  elementFound(driver, resetXpath);
+		WebElement message = elementFound(driver, messageXpath);
+		
 		
 		
 		System.out.println("The username css value is :\t"+username.getCssValue("width"));					// WebElement Method
 		System.out.println("The username is displayed :\t"+username.isDisplayed());  						// WebElement Method 		
 		System.out.println("The username is enabled :\t"+username.isEnabled());  	 						// WebElement Method
 		System.out.println("The username is selected :\t"+username.isSelected());  							// WebElement Method
-		System.out.println("The username is tag is :\t"+username.getTagName());  	 						// WebElement Method
+		System.out.println("The username tag is :\t"+username.getTagName());  	 						// WebElement Method
 		System.out.println("The value of name attribute is :\t"+username.getAttribute("name"));  		// WebElement Method
 		System.out.println("The value of name dom attribute is :\t"+username.getDomAttribute("name"));	// WebElement Method
 		System.out.println("The value of name dom property is :\t"+username.getDomProperty("name"));		// WebElement Method
-		System.out.println("The forgot password text is  :\t"+forgot.getText());    						// WebElement Method
+		System.out.println("The message of text is  :\t"+message.getText());    						// WebElement Method
 		
 			
 		username.sendKeys("ganesh");				// WebElement Method
@@ -48,8 +52,6 @@ public class WebElementsMethods {
 		password.sendKeys("ganesh");				// WebElement Method
 		submit.click();								// WebElement Method
 				
-		if(driver != null) {
-			driver.quit();							// WebDriver Method
-		}
+		init.quitDriver();
 	}
 }
