@@ -10,7 +10,6 @@ import junit.framework.Assert;
 public class windowHandling {
 	
 	public void tabWindowHandling() throws InterruptedException {
-		String windowss = "";
 		initDriver init = new initDriver();
 		WebDriver driver = init.initDriver();
 		String Url = "https://demoqa.com/browser-windows";
