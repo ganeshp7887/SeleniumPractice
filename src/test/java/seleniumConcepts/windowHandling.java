@@ -9,6 +9,14 @@ import junit.framework.Assert;
 
 public class windowHandling {
 	
+	// String parentWindow = driver.getWindowHandle() : It is an WebDriver method which returns the parent window ID of current session.
+		// return type is string.
+	// Set<String> windows = driver.getWindowHandles(): It is an WebDriver method which can store set of window id's present in the current session.
+		// return type is set of string.
+	// Used for tab switching, new window switching. multiple tabs & window  handling.
+	// driver.switchTo().window(windowID) : this command is used for window switching takes an argument as window ID.
+	
+	
 	public void tabWindowHandling() throws InterruptedException {
 		initDriver init = new initDriver();
 		WebDriver driver = init.initDriver();
@@ -18,10 +26,11 @@ public class windowHandling {
 		init.setUrl(Url);
 		String parentUrlBeforeSwitch = driver.getCurrentUrl();
 		driver.findElement(By.xpath("//button[@id='tabButton']")).click();
-		String parentWindow = driver.getWindowHandle();
+		String parentWindow = driver.getWindowHandle();			// returns the parent window ID of current session.
 		System.out.println("The parent window is :\t"+parentWindow);
 		
-		Set<String> windows = driver.getWindowHandles();
+		Set<String> windows = driver.getWindowHandles();   // Can store set of window id's present in the current session.
+		
 		for (String window : windows) {
 			if(!parentWindow.contentEquals(window)) {
 				driver.switchTo().window(window);
@@ -29,6 +38,8 @@ public class windowHandling {
 				Thread.sleep(2000);
 				switchedUrl = driver.getCurrentUrl();
 				System.out.println("The switched window url is :\t"+switchedUrl);
+				String textOnpage = driver.findElement(By.xpath("//*[@id='sampleHeading']")).getText();
+				System.out.println("The Text on page is :\t"+textOnpage);
 			}
 		}
 		
@@ -60,6 +71,8 @@ public class windowHandling {
 				Thread.sleep(3000);
 				switchedUrl = driver.getCurrentUrl();
 				System.out.println("The switched window url is :\t"+switchedUrl);
+				String textOnpage = driver.findElement(By.xpath("//*[@id='sampleHeading']")).getText();
+				System.out.println("The Text on page is :\t"+textOnpage);
 			}
 		}
 			driver.switchTo().window(parentWindow);
