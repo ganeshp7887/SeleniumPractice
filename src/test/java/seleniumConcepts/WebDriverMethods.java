@@ -1,4 +1,5 @@
 package seleniumConcepts;
+
 import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,13 +28,13 @@ public class WebDriverMethods {
 		
 		String windowID = driver.getWindowHandle();  			 // Webdriver methods :- To get id of currently working window.
 		
+		Set<String> wn = driver.getWindowHandles();    			 //	Webdriver methods :- To get list of windows on current sessions
+		
 		Options manage = driver.manage(); 						 // Webdriver methods :- To perform web page operations like cookies, timeouts, and windows maximize, minimize.
 		
 		Navigation nav = driver.navigate(); 					 // Webdriver methods :- To navigate web page forward backward or to move to url.
 		
 		TargetLocator switches = driver.switchTo(); 			 // Webdriver methods :- To perform operations on alerts, frames and windows.
-		
-		Set<String> wn = driver.getWindowHandles();    			 //	Webdriver methods :- To get list of windows on current sessions
 		
 		System.out.println("The url is : \t"+url);
 		System.out.println("the page source is : \t"+pageSource);
