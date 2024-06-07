@@ -9,11 +9,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class initDriver {
 	
 	private static String[] myoptions = {};
-	private static String Path = ".\\src\\test\\java\\Drivers\\geckodriver.exe";
-	private static WebDriver driver = null;
+	private static String Path = ".\\src\\test\\resources\\Drivers\\geckodriver.exe";
+	private WebDriver driver = null;
 	private static String url = "https://www.demo.guru99.com/v2/";
 	
-	public WebDriver initDriver() {
+	public WebDriver openBrowser() {
 			System.setProperty("webdriver.gecko.driver", Path);
 			FirefoxOptions options = new FirefoxOptions();
 			for(String option : myoptions) {

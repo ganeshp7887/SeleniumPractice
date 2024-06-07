@@ -3,10 +3,8 @@ package seleniumConcepts;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 public class actionClass {
@@ -23,7 +21,7 @@ public class actionClass {
 				// Finally, validate that the text in the Current Address and Permanent Address is the same.
 				
 				initDriver init = new initDriver();
-				WebDriver driver =  init.initDriver();
+				WebDriver driver =  init.openBrowser();
 				String UrlForDragDropTest = "https://demoqa.com/text-box";
 				
 				init.setUrl(UrlForDragDropTest);
@@ -56,13 +54,11 @@ public class actionClass {
 	public void mouseActions() {
 		
 		initDriver init = new initDriver();
-		WebDriver driver =  init.initDriver();
+		WebDriver driver =  init.openBrowser();
 		String UrlForDragDropTest = "https://www.demo.guru99.com/test/drag_drop.html";
 		
 		init.setUrl(UrlForDragDropTest);
 		
-		WebElement menuFirstItem = driver.findElement(By.xpath("//div[@id='navbar-brand-centered']/ul/li[1]/a"));
-		WebElement menuDraganddrop = driver.findElement(By.xpath("//div[@Id='navbar-brand-centered']/ul/li[1]/ul/li[19]"));
 		WebElement dragableSourceElement = driver.findElement(By.xpath("//div[@id='products']/div/ul/li[2]"));
 		WebElement dragableSourceElement2 = driver.findElement(By.xpath("//div[@id='products']/div/ul/li[4]"));
 		WebElement dragableTargetElement = driver.findElement(By.xpath("//div[@id='shoppingCart4']/div/ol/li"));

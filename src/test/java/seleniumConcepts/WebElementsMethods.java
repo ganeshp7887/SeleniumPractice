@@ -1,5 +1,4 @@
 package seleniumConcepts;
-import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,7 +21,7 @@ public class WebElementsMethods {
 	
 	public static void main(String[] args) {
 		initDriver init = new initDriver();
-		WebDriver driver = init.initDriver();
+		WebDriver driver = init.openBrowser();
 		
 		
 		init.setUrl();
@@ -31,7 +30,6 @@ public class WebElementsMethods {
 		WebElement username = elementFound(driver, usernameXpath);
 		WebElement password = elementFound(driver, passwordXpath);
 		WebElement submit =   elementFound(driver, submitXpath);
-		WebElement forgot =	  elementFound(driver, resetXpath);
 		WebElement message = elementFound(driver, messageXpath);
 		
 		

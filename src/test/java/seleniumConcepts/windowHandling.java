@@ -3,6 +3,8 @@ package seleniumConcepts;
 import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
+
 import junit.framework.Assert;
 
 
@@ -19,7 +21,7 @@ public class windowHandling {
 	
 	public void tabWindowHandling() throws InterruptedException {
 		initDriver init = new initDriver();
-		WebDriver driver = init.initDriver();
+		WebDriver driver = init.openBrowser();
 		String Url = "https://demoqa.com/browser-windows";
 		String childUrlShouldBe = "https://demoqa.com/sample";
 		String switchedUrl = "";
@@ -53,7 +55,7 @@ public class windowHandling {
 	
 	public void newWindowHandling() throws InterruptedException{
 		initDriver init = new initDriver();
-		WebDriver driver =	init.initDriver();
+		WebDriver driver =	init.openBrowser();
 		String Url = "https://demoqa.com/browser-windows";
 		String childUrlShouldBe = "https://demoqa.com/sample";
 		String switchedUrl = "";
@@ -83,9 +85,25 @@ public class windowHandling {
 			init.quitDriver();
 		}
 	
+	public void createNewWindow() throws InterruptedException {
+		initDriver init = new initDriver();
+		WebDriver driver = init.openBrowser();
+		String Url = "https://demoqa.com/nestedframes";
+		init.setUrl();
+		System.out.println("Original url title is :\t"+driver.getTitle());
+		driver.switchTo().newWindow(WindowType.TAB);
+		driver.navigate().to(Url);
+		System.out.println("Tab url title is :\t"+driver.getTitle());
+		driver.switchTo().newWindow(WindowType.WINDOW);
+		driver.navigate().to(Url);
+		System.out.println("New window url title is :\t"+driver.getTitle());
+		init.quitDriver();		
+	}
+	
 	public static void main(String[] args) throws InterruptedException {
 		windowHandling wh = new windowHandling();
 		wh.tabWindowHandling();
 		wh.newWindowHandling();
+		wh.createNewWindow();
 	}
 }
